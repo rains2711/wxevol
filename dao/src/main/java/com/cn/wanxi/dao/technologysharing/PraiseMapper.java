@@ -13,5 +13,4 @@ import com.cn.wanxi.common.IDao;
  * @since 2019-12-13
  */
 public interface PraiseMapper extends IDao {
-
 }
