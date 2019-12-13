@@ -2,7 +2,7 @@ package com.cn.wanxi.dao.technologysharing;
 
 //import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-import com.cn.wanxi.common.IDao;
+import com.cn.wanxi.entity.technologysharing.TagEntity;
 
 /**
  * <p>
@@ -12,6 +12,6 @@ import com.cn.wanxi.common.IDao;
  * @author LiRui
  * @since 2019-12-13
  */
-public interface TagMapper extends IDao {
+public interface TagMapper extends BaseMapper<TagEntity> {
 
 }
