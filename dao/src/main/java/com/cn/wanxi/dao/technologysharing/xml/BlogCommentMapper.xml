@@ -6,7 +6,7 @@
     <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.technologysharing.BlogComment">
+    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.technologysharing.BlogCommentEntity">
         <id column="id" property="id" />
         <result column="u_id" property="uId" />
         <result column="blog_id" property="blogId" />

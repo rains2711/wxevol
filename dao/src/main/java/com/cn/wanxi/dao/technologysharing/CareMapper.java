@@ -1,7 +1,8 @@
 package com.cn.wanxi.dao.technologysharing;
 
 //import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.cn.wanxi.entity.technologysharing.Care;
+
+import com.cn.wanxi.common.IDao;
 
 /**
  * <p>
@@ -11,6 +12,6 @@ import com.cn.wanxi.entity.technologysharing.Care;
  * @author LiRui
  * @since 2019-12-13
  */
-public interface CareMapper extends BaseMapper<Care> {
+public interface CareMapper extends IDao {
 
 }

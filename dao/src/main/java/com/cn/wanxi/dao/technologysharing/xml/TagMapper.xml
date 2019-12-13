@@ -6,7 +6,7 @@
     <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.technologysharing.Tag">
+    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.technologysharing.TagEntity">
         <id column="id" property="id" />
         <result column="create_time" property="createTime" />
         <result column="last_update_time" property="lastUpdateTime" />

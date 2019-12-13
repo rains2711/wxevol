@@ -1,7 +1,8 @@
 package com.cn.wanxi.dao.technologysharing;
 
 //import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.cn.wanxi.entity.technologysharing.BlogNotice;
+
+import com.cn.wanxi.common.IDao;
 
 /**
  * <p>
@@ -11,6 +12,6 @@ import com.cn.wanxi.entity.technologysharing.BlogNotice;
  * @author LiRui
  * @since 2019-12-13
  */
-public interface BlogNoticeMapper extends BaseMapper<BlogNotice> {
+public interface BlogNoticeMapper extends IDao {
 
 }

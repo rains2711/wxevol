@@ -16,7 +16,7 @@ import java.util.Date;
  * @since 2019-12-13
  */
 //@TableName("wx_tab_tag")
-public class Tag implements Serializable {
+public class TagEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

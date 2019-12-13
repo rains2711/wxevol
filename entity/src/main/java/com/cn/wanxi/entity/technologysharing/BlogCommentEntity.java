@@ -16,7 +16,7 @@ import java.util.Date;
  * @since 2019-12-13
  */
 //@TableName("wx_tab_blog_comment")
-public class BlogComment implements Serializable {
+public class BlogCommentEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

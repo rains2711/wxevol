@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @since 2019-12-13
  */
 //@TableName("wx_tab_praise")
-public class Praise implements Serializable {
+public class PraiseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,7 +1,7 @@
 package com.cn.wanxi.dao.technologysharing;
 
 
-import com.cn.wanxi.entity.technologysharing.BlogComment;
+import com.cn.wanxi.common.IDao;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.cn.wanxi.entity.technologysharing.BlogComment;
  * @author LiRui
  * @since 2019-12-13
  */
-public interface BlogCommentMapper extends BaseMapper<BlogComment> {
+public interface BlogCommentMapper extends IDao {
 
 }

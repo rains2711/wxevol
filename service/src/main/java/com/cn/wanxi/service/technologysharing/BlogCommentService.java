@@ -1,6 +1,6 @@
 package com.cn.wanxi.service.technologysharing;
 
-import com.cn.wanxi.entity.technologysharing.BlogComment;
+import com.cn.wanxi.common.IService;
 
 /**
  * <p>
@@ -10,6 +10,6 @@ import com.cn.wanxi.entity.technologysharing.BlogComment;
  * @author LiRui
  * @since 2019-12-13
  */
-public interface BlogCommentService extends IService<BlogComment> {
+public interface BlogCommentService extends IService {
 
 }
