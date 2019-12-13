@@ -5,5 +5,6 @@ package com.cn.wanxi.dao.technologysharing;
  * @Date: 2019/12/13
  * @Time: 15:49
  */
-public interface BaseMapper<T> {
+interface BaseMapper<T> {
+
 }
