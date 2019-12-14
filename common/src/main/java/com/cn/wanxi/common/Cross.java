@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 /**
  * 解决跨域问题和后缀问题
+ * @author LiRui
  */
 @Configuration
 public class Cross extends WebMvcConfigurationSupport {
