@@ -26,21 +26,19 @@
         WHERE slave_id = #{slave_id}
     </select>
 
-    <update id="deleteById" parameterType="java.lang.Integer">
-       update
-            wx_tab_care
-        set
-            status=9
+    <delete id="deleteById" parameterType="java.lang.Integer">
+       delete from
+            wx_tab_blog_notice
        WHERE
-            id=#{id} and status=1
-    </update>
+            id=#{id}
+    </delete>
 
     <insert id="insert" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity">
        INSERT INTO
-       		wx_tab_tag
-       		(name,create_time,last_update_time,status,quote)
+       		wx_tab_blog_notice
+       		(slave_id, master_id, `time`, is_look)
        	VALUES
-       		(#{name},#{createTime}, #{lastUpdateTime},0,#{quote})
+       		(#{slaveId},#{masterId}, #{time},#{isLook})
     </insert>
 
     <select id="findByWrapper" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity"

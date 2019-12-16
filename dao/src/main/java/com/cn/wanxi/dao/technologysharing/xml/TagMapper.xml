@@ -59,8 +59,8 @@
         <where>
             1=1
             <if test="name!=null">and name=#{name}</if>
-            <if test="create_time!=null">and create_time=#{create_time}</if>
-            <if test="last_update_time!=null">and last_update_time=#{last_update_time}</if>
+            <if test="create_time!=null">and create_time=#{createTime}</if>
+            <if test="last_update_time!=null">and last_update_time=#{lastUpdateTime}</if>
             <if test="quote!=null">and quote &lt;= #{quote}</if>
             <if test="status!=null">and status=#{status}</if>
         </where>
@@ -70,8 +70,8 @@
         update wx_tab_tag
         <set>
             <if test="name!=null">name=#{name}</if>
-            <!--            <if test="create_time!=null">and create_time=#{create_time}</if>-->
-            <if test="last_update_time!=null">last_update_time=#{last_update_time}</if>
+            <!--            <if test="create_time!=null">and create_time=#{createTime}</if>-->
+            <if test="last_update_time!=null">last_update_time=#{lastUpdateTime}</if>
             <!--            <if test="quote!=null">and quote &lt;= #{quote}</if>-->
             <if test="status!=null">status=#{status}</if>
         </set>

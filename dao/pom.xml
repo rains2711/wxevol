@@ -43,12 +43,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <scope>2.2.1</scope>
+            <version>2.2.2.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>8.0.18</scope>
+            <version>8.0.18</version>
         </dependency>
     </dependencies>
     <build>
