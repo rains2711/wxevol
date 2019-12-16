@@ -31,7 +31,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM wx_tab_tag
-        WHERE id = #{id} and status=1
+        WHERE id = #{id} and status=1 or status=0
     </select>
 
     <update id="deleteById" parameterType="java.lang.Integer">
@@ -40,13 +40,13 @@
         set
             status=9
        WHERE
-            id=#{id} and status=1
+            id=#{id} and status=1 or status=0
     </update>
 
     <insert id="insert" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity">
        INSERT INTO
        		wx_tab_tag
-       		(name,create_time,last_update_time,status,quote)
+       		(`name`,create_time,last_update_time,status,quote)
        	VALUES
        		(#{name},#{createTime}, #{lastUpdateTime},0,#{quote})
     </insert>
@@ -59,10 +59,11 @@
         <where>
             1=1
             <if test="name!=null">and name=#{name}</if>
-            <if test="create_time!=null">and create_time=#{createTime}</if>
-            <if test="last_update_time!=null">and last_update_time=#{lastUpdateTime}</if>
+            <if test="createTime!=null">and create_time=#{createTime}</if>
+            <if test="lastUpdateTime!=null">and last_update_time=#{lastUpdateTime}</if>
             <if test="quote!=null">and quote &lt;= #{quote}</if>
             <if test="status!=null">and status=#{status}</if>
+            <if test="status==null">and status=1 or status=0</if>
         </where>
     </select>
 
@@ -71,9 +72,11 @@
         <set>
             <if test="name!=null">name=#{name}</if>
             <!--            <if test="create_time!=null">and create_time=#{createTime}</if>-->
-            <if test="last_update_time!=null">last_update_time=#{lastUpdateTime}</if>
+            <if test="lastUpdateTime!=null">last_update_time=#{lastUpdateTime}</if>
             <!--            <if test="quote!=null">and quote &lt;= #{quote}</if>-->
             <if test="status!=null">status=#{status}</if>
         </set>
+        where  id=#{id}
+        <if test="status==null">and status=1 or status=0</if>
     </update>
 </mapper>

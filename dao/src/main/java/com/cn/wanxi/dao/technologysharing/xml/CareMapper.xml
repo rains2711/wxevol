@@ -23,8 +23,8 @@
         FROM wx_tab_care
         <where>
             1=1
-            <if test="slave_id!=null">and slave_id=#{slave_id}</if>
-            <if test="master_id!=null">and master_id=#{master_id}</if>
+            <if test="slave_id!=null">and slave_id=#{slaveId}</if>
+            <if test="master_id!=null">and master_id=#{masterId}</if>
         </where>
     </select>
 
