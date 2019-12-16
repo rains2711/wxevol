@@ -33,7 +33,7 @@
             id=#{id}
     </delete>
 
-    <insert id="insert" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity">
+    <insert id="insert" parameterType="com.cn.wanxi.entity.technologysharing.BlogNoticeEntity">
        INSERT INTO
        		wx_tab_blog_notice
        		(slave_id, master_id, `time`, is_look)
@@ -41,7 +41,7 @@
        		(#{slaveId},#{masterId}, #{time},#{isLook})
     </insert>
 
-    <select id="findByWrapper" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity"
+    <select id="findByWrapper" parameterType="com.cn.wanxi.entity.technologysharing.BlogNoticeEntity"
             resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -56,7 +56,7 @@
         </where>
     </select>
 
-    <update id="updateById" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity">
+    <update id="updateById" parameterType="com.cn.wanxi.entity.technologysharing.BlogNoticeEntity">
         update wx_tab_tag
         <set>
             <if test="name!=null">name=#{name}</if>
