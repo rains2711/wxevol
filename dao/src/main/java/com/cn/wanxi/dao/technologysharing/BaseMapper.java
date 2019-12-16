@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author: LiRui
@@ -52,11 +51,22 @@ public interface BaseMapper<T> {
     /**
      * 分页接口
      *
-     * @param map
+     * @param entities
      * @param page
      * @param size
      * @return
      */
-    List<T> findPage(Map<String, Object> map, Integer page, Integer size);
+    List<T> findPage(List<T> entities, Integer page, Integer size);
 
+    /**
+     * 通过条件查询
+     * @param entity
+     * @return
+     */
+    List<T> findByWrapper(T entity);
+    /**
+     * 查询全部
+     * @return
+     */
+    List<T> findAll();
 }
