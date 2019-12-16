@@ -1,12 +1,14 @@
 package com.cn.wanxi.service.technologysharing.impl;
 
+import com.cn.wanxi.dao.technologysharing.TagMapper;
+import com.cn.wanxi.entity.technologysharing.BlogCommentEntity;
 import com.cn.wanxi.entity.technologysharing.TagEntity;
 import com.cn.wanxi.service.technologysharing.ITagService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -18,6 +20,9 @@ import java.util.Map;
  */
 @Service
 public class ITagServiceImpl implements ITagService {
+
+    @Autowired
+    private TagMapper tm;
 
     /**
      * <p>
@@ -72,15 +77,36 @@ public class ITagServiceImpl implements ITagService {
     }
 
     /**
+     * 通过条件查询
+     *
+     * @param entity
+     * @return
+     */
+    @Override
+    public List<TagEntity> findByWrapper(TagEntity entity) {
+        return null;
+    }
+
+    /**
      * 分页接口
      *
-     * @param map
+     * @param entities
      * @param page
      * @param size
      * @return
      */
     @Override
-    public List<TagEntity> findPage(Map<String, Object> map, Integer page, Integer size) {
+    public List<BlogCommentEntity> findPage(List<BlogCommentEntity> entities, Integer page, Integer size) {
+        return null;
+    }
+
+    /**
+     * 查询全部
+     *
+     * @return
+     */
+    @Override
+    public List<TagEntity> findAll() {
         return null;
     }
 }

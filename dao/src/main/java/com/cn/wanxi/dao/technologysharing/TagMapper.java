@@ -1,8 +1,8 @@
 package com.cn.wanxi.dao.technologysharing;
 
-//import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 import com.cn.wanxi.entity.technologysharing.TagEntity;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -12,6 +12,7 @@ import com.cn.wanxi.entity.technologysharing.TagEntity;
  * @author LiRui
  * @since 2019-12-13
  */
+@Mapper
 public interface TagMapper extends BaseMapper<TagEntity> {
 
 }

@@ -1,12 +1,13 @@
 package com.cn.wanxi.service.technologysharing.impl;
 
+import com.cn.wanxi.dao.technologysharing.BlogCommentMapper;
 import com.cn.wanxi.entity.technologysharing.BlogCommentEntity;
 import com.cn.wanxi.service.technologysharing.IBlogCommentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -19,6 +20,8 @@ import java.util.Map;
 @Service
 public class IBlogCommentServiceImpl implements IBlogCommentService {
 
+    @Autowired
+    private BlogCommentMapper bcm;
 
     /**
      * <p>
@@ -75,13 +78,34 @@ public class IBlogCommentServiceImpl implements IBlogCommentService {
     /**
      * 分页接口
      *
-     * @param map
+     * @param entities
      * @param page
      * @param size
      * @return
      */
     @Override
-    public List<BlogCommentEntity> findPage(Map<String, Object> map, Integer page, Integer size) {
+    public List<BlogCommentEntity> findPage(List<BlogCommentEntity> entities, Integer page, Integer size) {
+        return null;
+    }
+
+    /**
+     * 通过条件查询
+     *
+     * @param entity
+     * @return
+     */
+    @Override
+    public List<BlogCommentEntity> findByWrapper(BlogCommentEntity entity) {
+        return null;
+    }
+
+    /**
+     * 查询全部
+     *
+     * @return
+     */
+    @Override
+    public List<BlogCommentEntity> findAll() {
         return null;
     }
 }

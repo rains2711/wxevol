@@ -36,31 +36,30 @@
                 #{desc,jdbcType=LONGVARCHAR})
     </insert>
 
-    <delete id="deleteById" parameterType="java.lang.Integer">
-        delete
-        from wx_tab_blog
-        where id = #{id,jdbcType=INTEGER}
-    </delete>
+    <update id="deleteById" parameterType="java.lang.Integer">
+        update
+        wx_tab_blog
+        set status=9
+        where id = #{id,jdbcType=INTEGER} and status=1 or status=0
+    </update>
 
     <update id="updateById" parameterType="com.cn.wanxi.entity.technologysharing.BlogEntity">
         update wx_tab_blog
         set title            = #{title,jdbcType=VARCHAR},
             content          = #{content,jdbcType=LONGVARCHAR},
             author           = #{author,jdbcType=VARCHAR},
-            u_id             = #{uId,jdbcType=INTEGER},
             url              = #{url,jdbcType=VARCHAR},
-            create_time      = #{createTime,jdbcType=DATE},
             last_update_time = #{lastUpdateTime,jdbcType=DATE},
             `status`         = #{status,jdbcType=INTEGER},
             praise_count     = #{praiseCount,jdbcType=INTEGER},
             `desc`           = #{desc,jdbcType=LONGVARCHAR}
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER} and status=0 or status=1
     </update>
 
     <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from wx_tab_blog where id = #{id,jdbcType=INTEGER};
+        from wx_tab_blog where id = #{id,jdbcType=INTEGER} and status!=9;
     </select>
 
     <!--条件查询-->
@@ -69,17 +68,18 @@
         <include refid="Base_Column_List"/>
         from wx_tab_blog
         <where>
+            1=1
             <if test="id != null">and id = #{id,jdbcType=INTEGER}</if>
             <if test="title != null">and title = #{title,jdbcType=VARCHAR}</if>
             <if test="content != null">and content like CONCAT('%', CONCAT(#{content,jdbcType=LONGVARCHAR},'%'))</if>
             <if test="author != null">and author = #{author,jdbcType=VARCHAR}</if>
-            <if test="u_id != null">and u_id = #{uId,jdbcType=INTEGER}</if>
+            <if test="uId != null">and u_id = #{uId,jdbcType=INTEGER}</if>
             <if test="url != null">and url = #{url,jdbcType=VARCHAR}</if>
-            <if test="create_time != null">and create_time = #{createTime,jdbcType=DATE}</if>
-            <if test="last_update_time != null">and last_update_time = #{lastUpdateTime,jdbcType=DATE}</if>
+            <if test="createTime != null">and create_time = #{createTime,jdbcType=DATE}</if>
+            <if test="lastUpdateTime != null">and last_update_time = #{lastUpdateTime,jdbcType=DATE}</if>
             <if test="status != null">and `status` = #{status,jdbcType=INTEGER}</if>
             <if test="status == null">and `status` = 1 or `status` = 0</if>
-            <if test="praise_count != null">and praise_count = #{praiseCount,jdbcType=INTEGER}</if>
+            <if test="praiseCount != null">and praise_count = #{praiseCount,jdbcType=INTEGER}</if>
             <if test="desc != null">and `desc` like CONCAT('%', CONCAT(#{desc,jdbcType=LONGVARCHAR}, '%'))</if>
         </where>
     </select>

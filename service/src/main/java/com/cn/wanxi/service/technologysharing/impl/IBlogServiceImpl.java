@@ -1,7 +1,10 @@
 package com.cn.wanxi.service.technologysharing.impl;
 
+import com.cn.wanxi.dao.technologysharing.BlogMapper;
+import com.cn.wanxi.entity.technologysharing.BlogCommentEntity;
 import com.cn.wanxi.entity.technologysharing.BlogEntity;
 import com.cn.wanxi.service.technologysharing.IBlogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -17,6 +20,9 @@ import java.util.List;
  */
 @Service
 public class IBlogServiceImpl implements IBlogService {
+
+    @Autowired
+    private BlogMapper bm;
 
     /**
      * <p>
@@ -71,6 +77,17 @@ public class IBlogServiceImpl implements IBlogService {
     }
 
     /**
+     * 通过条件查询
+     *
+     * @param entity
+     * @return
+     */
+    @Override
+    public List<BlogEntity> findByWrapper(BlogEntity entity) {
+        return null;
+    }
+
+    /**
      * 分页接口
      *
      * @param entities
@@ -79,18 +96,7 @@ public class IBlogServiceImpl implements IBlogService {
      * @return
      */
     @Override
-    public List<BlogEntity> findPage(List<BlogEntity> entities, Integer page, Integer size) {
-        return null;
-    }
-
-    /**
-     * 通过条件查询
-     *
-     * @param entity
-     * @return
-     */
-    @Override
-    public List<BlogEntity> findByWrapper(BlogEntity entity) {
+    public List<BlogCommentEntity> findPage(List<BlogCommentEntity> entities, Integer page, Integer size) {
         return null;
     }
 
