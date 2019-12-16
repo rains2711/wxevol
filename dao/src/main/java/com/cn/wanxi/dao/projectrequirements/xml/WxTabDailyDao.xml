@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabDailyDao">
+    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="commit_time" jdbcType="DATE" property="commitTime"/>
+        <result column="commit_member_id" jdbcType="BIGINT" property="commitMemberId"/>
+        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="period_id" jdbcType="BIGINT" property="periodId"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
+               type="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity">
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, commit_time, commit_member_id, update_time, `status`, period_id
+    </sql>
+    <sql id="Blob_Column_List">
+        content
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from wx_tab_daily
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from wx_tab_daily
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity" useGeneratedKeys="true">
+        insert into wx_tab_daily (commit_time, commit_member_id, update_time,
+                                  `status`, period_id, content)
+        values (#{commitTime,jdbcType=DATE}, #{commitMemberId,jdbcType=BIGINT}, #{updateTime,jdbcType=DATE},
+                #{status,jdbcType=TINYINT}, #{periodId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity" useGeneratedKeys="true">
+        insert into wx_tab_daily
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="commitTime != null">
+                commit_time,
+            </if>
+            <if test="commitMemberId != null">
+                commit_member_id,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="periodId != null">
+                period_id,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="commitTime != null">
+                #{commitTime,jdbcType=DATE},
+            </if>
+            <if test="commitMemberId != null">
+                #{commitMemberId,jdbcType=BIGINT},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=DATE},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="periodId != null">
+                #{periodId,jdbcType=BIGINT},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity">
+        update wx_tab_daily
+        <set>
+            <if test="commitTime != null">
+                commit_time = #{commitTime,jdbcType=DATE},
+            </if>
+            <if test="commitMemberId != null">
+                commit_member_id = #{commitMemberId,jdbcType=BIGINT},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=DATE},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="periodId != null">
+                period_id = #{periodId,jdbcType=BIGINT},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity">
+        update wx_tab_daily
+        set commit_time      = #{commitTime,jdbcType=DATE},
+            commit_member_id = #{commitMemberId,jdbcType=BIGINT},
+            update_time      = #{updateTime,jdbcType=DATE},
+            `status`         = #{status,jdbcType=TINYINT},
+            period_id        = #{periodId,jdbcType=BIGINT},
+            content          = #{content,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity">
+        update wx_tab_daily
+        set commit_time      = #{commitTime,jdbcType=DATE},
+            commit_member_id = #{commitMemberId,jdbcType=BIGINT},
+            update_time      = #{updateTime,jdbcType=DATE},
+            `status`         = #{status,jdbcType=TINYINT},
+            period_id        = #{periodId,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+</mapper>
