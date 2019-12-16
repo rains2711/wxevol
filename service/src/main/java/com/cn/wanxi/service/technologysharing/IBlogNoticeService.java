@@ -5,7 +5,7 @@ import com.cn.wanxi.entity.technologysharing.BlogNoticeEntity;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author LiRui

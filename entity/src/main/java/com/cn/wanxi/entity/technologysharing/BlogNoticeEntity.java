@@ -1,8 +1,5 @@
 package com.cn.wanxi.entity.technologysharing;
 
-//import com.baomidou.mybatisplus.annotations.TableId;
-//import com.baomidou.mybatisplus.annotations.TableName;
-//import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,7 +12,6 @@ import java.util.Date;
  * @author LiRui
  * @since 2019-12-13
  */
-//@TableName("wx_tab_blog_notice")
 public class BlogNoticeEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,7 +19,6 @@ public class BlogNoticeEntity implements Serializable {
     /**
      * 消息提醒的id
      */
-//    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     /**
      * 关注者的id

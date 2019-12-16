@@ -1,8 +1,5 @@
 package com.cn.wanxi.entity.technologysharing;
 
-//import com.baomidou.mybatisplus.annotations.TableId;
-//import com.baomidou.mybatisplus.annotations.TableName;
-//import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,7 +12,6 @@ import java.util.Date;
  * @author LiRui
  * @since 2019-12-13
  */
-//@TableName("wx_tab_tag")
 public class TagEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,8 +19,11 @@ public class TagEntity implements Serializable {
     /**
      * 标签id
      */
-//    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+    /**
+     * 标签名字
+     */
+    private String name;
     /**
      * 创建时间
      */
@@ -83,14 +82,23 @@ public class TagEntity implements Serializable {
         this.quote = quote;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "Tag{" +
-        ", id=" + id +
-        ", createTime=" + createTime +
-        ", lastUpdateTime=" + lastUpdateTime +
-        ", status=" + status +
-        ", quote=" + quote +
-        "}";
+        return "TagEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", createTime=" + createTime +
+                ", lastUpdateTime=" + lastUpdateTime +
+                ", status=" + status +
+                ", quote=" + quote +
+                '}';
     }
 }

@@ -2,9 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.technologysharing.PraiseMapper">
 
-<!--    &lt;!&ndash; 开启二级缓存 &ndash;&gt;-->
-<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
-
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.technologysharing.PraiseEntity">
         <result column="u_id" property="uId" />
@@ -15,5 +12,24 @@
     <sql id="Base_Column_List">
         u_id, blog_id
     </sql>
+    <insert id="insert" parameterType="com.cn.wanxi.entity.technologysharing.PraiseEntity">
+       INSERT INTO
+       		wx_tab_praise
+       		(uId,blogId)
+       	VALUES
+       		(#{uId}, #{blogId})
+    </insert>
 
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM wx_tab_praise
+    </select>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+       DELETE FROM
+            wx_tab_praise
+       WHERE
+            id=#{id}
+    </delete>
 </mapper>

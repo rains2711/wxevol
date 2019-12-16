@@ -2,21 +2,78 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.technologysharing.TagMapper">
 
-<!--    &lt;!&ndash; 开启二级缓存 &ndash;&gt;-->
-<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!--    &lt;!&ndash; 开启二级缓存 &ndash;&gt;-->
+    <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.technologysharing.TagEntity">
-        <id column="id" property="id" />
-        <result column="create_time" property="createTime" />
-        <result column="last_update_time" property="lastUpdateTime" />
-        <result column="status" property="status" />
-        <result column="quote" property="quote" />
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_update_time" property="lastUpdateTime"/>
+        <result column="status" property="status"/>
+        <result column="quote" property="quote"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, create_time, last_update_time, status, quote
+        id,`name`, create_time, last_update_time, status, quote
     </sql>
 
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM wx_tab_tag
+        where status=1 or status=0
+    </select>
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM wx_tab_tag
+        WHERE id = #{id} and status=1
+    </select>
+
+    <update id="deleteById" parameterType="java.lang.Integer">
+       update
+            wx_tab_care
+        set
+            status=9
+       WHERE
+            id=#{id} and status=1
+    </update>
+
+    <insert id="insert" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity">
+       INSERT INTO
+       		wx_tab_tag
+       		(name,create_time,last_update_time,status,quote)
+       	VALUES
+       		(#{name},#{createTime}, #{lastUpdateTime},0,#{quote})
+    </insert>
+
+    <select id="findByWrapper" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from wx_tab_tag
+        <where>
+            1=1
+            <if test="name!=null">and name=#{name}</if>
+            <if test="create_time!=null">and create_time=#{create_time}</if>
+            <if test="last_update_time!=null">and last_update_time=#{last_update_time}</if>
+            <if test="quote!=null">and quote &lt;= #{quote}</if>
+            <if test="status!=null">and status=#{status}</if>
+        </where>
+    </select>
+
+    <update id="updateById" parameterType="com.cn.wanxi.entity.technologysharing.TagEntity">
+        update wx_tab_tag
+        <set>
+            <if test="name!=null">name=#{name}</if>
+            <!--            <if test="create_time!=null">and create_time=#{create_time}</if>-->
+            <if test="last_update_time!=null">last_update_time=#{last_update_time}</if>
+            <!--            <if test="quote!=null">and quote &lt;= #{quote}</if>-->
+            <if test="status!=null">status=#{status}</if>
+        </set>
+    </update>
 </mapper>

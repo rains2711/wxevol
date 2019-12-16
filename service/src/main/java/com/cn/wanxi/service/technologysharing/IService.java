@@ -20,6 +20,7 @@ public interface IService<T> {
      * @return int
      */
     Integer insert(T entity);
+
     /**
      * <p>
      * 根据 ID 删除
@@ -29,6 +30,7 @@ public interface IService<T> {
      * @return int
      */
     Integer deleteById(Serializable id);
+
     /**
      * <p>
      * 根据 ID 修改
@@ -38,6 +40,7 @@ public interface IService<T> {
      * @return int
      */
     Integer updateById(@Param("et") T entity);
+
     /**
      * <p>
      * 根据 ID 查询
@@ -47,6 +50,7 @@ public interface IService<T> {
      * @return T
      */
     T selectById(Serializable id);
+
     /**
      * 分页接口
      *
@@ -59,12 +63,15 @@ public interface IService<T> {
 
     /**
      * 通过条件查询
+     *
      * @param entity
      * @return
      */
     List<T> findByWrapper(T entity);
+
     /**
      * 查询全部
+     *
      * @return
      */
     List<T> findAll();

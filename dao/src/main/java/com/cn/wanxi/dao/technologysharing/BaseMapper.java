@@ -49,16 +49,6 @@ public interface BaseMapper<T> {
      */
     T selectById(Serializable id);
     /**
-     * 分页接口
-     *
-     * @param entities
-     * @param page
-     * @param size
-     * @return
-     */
-    List<T> findPage(List<T> entities, Integer page, Integer size);
-
-    /**
      * 通过条件查询
      * @param entity
      * @return

@@ -2,57 +2,58 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.technologysharing.CareMapper">
 
-<!--    &lt;!&ndash; 开启二级缓存 &ndash;&gt;-->
-<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!--    &lt;!&ndash; 开启二级缓存 &ndash;&gt;-->
+    <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.technologysharing.CareEntity">
-        <id column="id" property="id" />
-        <result column="slave_id" property="slaveId" />
-        <result column="master_id" property="masterId" />
+        <id column="id" property="id"/>
+        <result column="slave_id" property="slaveId"/>
+        <result column="master_id" property="masterId"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, slave_id, master_id
     </sql>
+
+    <select id="findByWrapper"  parameterType="com.cn.wanxi.entity.technologysharing.CareEntity" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        FROM wx_tab_care
+        <where>
+            1=1
+            <if test="slave_id!=null">and slave_id=#{slave_id}</if>
+            <if test="master_id!=null">and master_id=#{master_id}</if>
+        </where>
+    </select>
+
     <select id="findAll" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM wx_tab_care
     </select>
 
-        <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
-            SELECT
-            <include refid="Base_Column_List" />
-            FROM wx_tab_care
-            WHERE id = #{id}
-        </select>
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM wx_tab_care
+        WHERE id = #{id}
+    </select>
 
-    <insert id="insert" parameterType="com.mybatis.demo2.bean.User">
+    <insert id="insert" parameterType="com.cn.wanxi.entity.technologysharing.CareEntity">
        INSERT INTO
-       		users
-       		(username,sex)
+       		wx_tab_care
+       		(slave_id,master_id)
        	VALUES
-       		(#{username}, #{sex})
+       		(#{slaveId}, #{masterId})
     </insert>
 
-    <update id="update" parameterType="com.mybatis.demo2.bean.User">
-        UPDATE
-        users
-        <set>
-            <if test="username!=null">username=#{username},</if>
-            <if test="sex!=null">sex=#{sex},</if>
-        </set>
-        WHERE
-        id=#{id}
-    </update>
-
-    <delete id="delete" parameterType="java.lang.Integer">
+    <delete id="deleteById" parameterType="java.lang.Integer">
        DELETE FROM
-       users
+            wx_tab_care
        WHERE
-       id=#{id}
+            id=#{id}
     </delete>
 
 

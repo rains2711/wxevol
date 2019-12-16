@@ -6,11 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author LiRui
@@ -74,13 +73,36 @@ public class IBlogServiceImpl implements IBlogService {
     /**
      * 分页接口
      *
-     * @param map
+     * @param entities
      * @param page
      * @param size
      * @return
      */
     @Override
-    public List<BlogEntity> findPage(Map<String, Object> map, Integer page, Integer size) {
+    public List<BlogEntity> findPage(List<BlogEntity> entities, Integer page, Integer size) {
         return null;
     }
+
+    /**
+     * 通过条件查询
+     *
+     * @param entity
+     * @return
+     */
+    @Override
+    public List<BlogEntity> findByWrapper(BlogEntity entity) {
+        return null;
+    }
+
+    /**
+     * 查询全部
+     *
+     * @return
+     */
+    @Override
+    public List<BlogEntity> findAll() {
+        return null;
+    }
+
+
 }
