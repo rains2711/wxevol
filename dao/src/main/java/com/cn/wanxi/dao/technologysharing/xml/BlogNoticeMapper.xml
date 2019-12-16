@@ -23,7 +23,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM wx_tab_blog_notice
-        WHERE slave_id = #{slave_id}
+        WHERE slave_id = #{slaveId}
     </select>
 
     <delete id="deleteById" parameterType="java.lang.Integer">
@@ -45,25 +45,19 @@
             resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from wx_tab_tag
+        from wx_tab_blog_notice
         <where>
             1=1
-            <if test="name!=null">and name=#{name}</if>
-            <if test="create_time!=null">and create_time=#{create_time}</if>
-            <if test="last_update_time!=null">and last_update_time=#{last_update_time}</if>
-            <if test="quote!=null">and quote &lt;= #{quote}</if>
-            <if test="status!=null">and status=#{status}</if>
+            <if test="time!=null">and `time`=#{time}</if>
+            <if test="isLook!=null">and is_look=#{isLook}</if>
         </where>
     </select>
 
     <update id="updateById" parameterType="com.cn.wanxi.entity.technologysharing.BlogNoticeEntity">
-        update wx_tab_tag
+        update wx_tab_blog_notice
         <set>
-            <if test="name!=null">name=#{name}</if>
-            <!--            <if test="create_time!=null">and create_time=#{create_time}</if>-->
-            <if test="last_update_time!=null">last_update_time=#{last_update_time}</if>
-            <!--            <if test="quote!=null">and quote &lt;= #{quote}</if>-->
-            <if test="status!=null">status=#{status}</if>
+            <if test="isLook!=null">is_look=#{isLook}</if>
         </set>
+        where id=#{id}
     </update>
 </mapper>

@@ -66,13 +66,6 @@ public class TagEntity implements Serializable {
         this.lastUpdateTime = lastUpdateTime;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
 
     public Integer getQuote() {
         return quote;
@@ -88,6 +81,14 @@ public class TagEntity implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     @Override
