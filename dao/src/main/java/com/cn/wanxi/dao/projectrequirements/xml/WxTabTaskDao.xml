@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabTaskDao">
+    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.projectrequirements.WxTabTaskEntity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="work_hour" jdbcType="TINYINT" property="workHour"/>
+        <result column="priority" jdbcType="TINYINT" property="priority"/>
+        <result column="task_id" jdbcType="BIGINT" property="taskId"/>
+        <result column="member_id" jdbcType="BIGINT" property="memberId"/>
+        <result column="project_id" jdbcType="BIGINT" property="projectId"/>
+        <result column="progress" jdbcType="TINYINT" property="progress"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, work_hour, priority, task_id, member_id, project_id, progress, create_time, update_time,
+    `status`
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from wx_tab_task
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from wx_tab_task
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTaskEntity" useGeneratedKeys="true">
+        insert into wx_tab_task (work_hour, priority, task_id,
+                                 member_id, project_id, progress,
+                                 create_time, update_time, `status`)
+        values (#{workHour,jdbcType=TINYINT}, #{priority,jdbcType=TINYINT}, #{taskId,jdbcType=BIGINT},
+                #{memberId,jdbcType=BIGINT}, #{projectId,jdbcType=BIGINT}, #{progress,jdbcType=TINYINT},
+                #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}, #{status,jdbcType=TINYINT})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTaskEntity" useGeneratedKeys="true">
+        insert into wx_tab_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="workHour != null">
+                work_hour,
+            </if>
+            <if test="priority != null">
+                priority,
+            </if>
+            <if test="taskId != null">
+                task_id,
+            </if>
+            <if test="memberId != null">
+                member_id,
+            </if>
+            <if test="projectId != null">
+                project_id,
+            </if>
+            <if test="progress != null">
+                progress,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="workHour != null">
+                #{workHour,jdbcType=TINYINT},
+            </if>
+            <if test="priority != null">
+                #{priority,jdbcType=TINYINT},
+            </if>
+            <if test="taskId != null">
+                #{taskId,jdbcType=BIGINT},
+            </if>
+            <if test="memberId != null">
+                #{memberId,jdbcType=BIGINT},
+            </if>
+            <if test="projectId != null">
+                #{projectId,jdbcType=BIGINT},
+            </if>
+            <if test="progress != null">
+                #{progress,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=DATE},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=DATE},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTaskEntity">
+        update wx_tab_task
+        <set>
+            <if test="workHour != null">
+                work_hour = #{workHour,jdbcType=TINYINT},
+            </if>
+            <if test="priority != null">
+                priority = #{priority,jdbcType=TINYINT},
+            </if>
+            <if test="taskId != null">
+                task_id = #{taskId,jdbcType=BIGINT},
+            </if>
+            <if test="memberId != null">
+                member_id = #{memberId,jdbcType=BIGINT},
+            </if>
+            <if test="projectId != null">
+                project_id = #{projectId,jdbcType=BIGINT},
+            </if>
+            <if test="progress != null">
+                progress = #{progress,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=DATE},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=DATE},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=TINYINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTaskEntity">
+        update wx_tab_task
+        set work_hour   = #{workHour,jdbcType=TINYINT},
+            priority    = #{priority,jdbcType=TINYINT},
+            task_id     = #{taskId,jdbcType=BIGINT},
+            member_id   = #{memberId,jdbcType=BIGINT},
+            project_id  = #{projectId,jdbcType=BIGINT},
+            progress    = #{progress,jdbcType=TINYINT},
+            create_time = #{createTime,jdbcType=DATE},
+            update_time = #{updateTime,jdbcType=DATE},
+            `status`    = #{status,jdbcType=TINYINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

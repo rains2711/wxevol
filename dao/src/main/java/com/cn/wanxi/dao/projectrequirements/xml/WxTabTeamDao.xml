@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabTeamDao">
+    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="CHAR" property="name"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="superior_team_id" jdbcType="BIGINT" property="superiorTeamId"/>
+        <result column="work_day" jdbcType="TINYINT" property="workDay"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, `name`, create_time, update_time, superior_team_id, work_day, `status`
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from wx_tab_team
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from wx_tab_team
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity" useGeneratedKeys="true">
+        insert into wx_tab_team (`name`, create_time, update_time,
+                                 superior_team_id, work_day, `status`)
+        values (#{name,jdbcType=CHAR}, #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE},
+                #{superiorTeamId,jdbcType=BIGINT}, #{workDay,jdbcType=TINYINT}, #{status,jdbcType=TINYINT})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity" useGeneratedKeys="true">
+        insert into wx_tab_team
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="superiorTeamId != null">
+                superior_team_id,
+            </if>
+            <if test="workDay != null">
+                work_day,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=DATE},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=DATE},
+            </if>
+            <if test="superiorTeamId != null">
+                #{superiorTeamId,jdbcType=BIGINT},
+            </if>
+            <if test="workDay != null">
+                #{workDay,jdbcType=TINYINT},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity">
+        update wx_tab_team
+        <set>
+            <if test="name != null">
+                `name` = #{name,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=DATE},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=DATE},
+            </if>
+            <if test="superiorTeamId != null">
+                superior_team_id = #{superiorTeamId,jdbcType=BIGINT},
+            </if>
+            <if test="workDay != null">
+                work_day = #{workDay,jdbcType=TINYINT},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=TINYINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity">
+        update wx_tab_team
+        set `name`           = #{name,jdbcType=CHAR},
+            create_time      = #{createTime,jdbcType=DATE},
+            update_time      = #{updateTime,jdbcType=DATE},
+            superior_team_id = #{superiorTeamId,jdbcType=BIGINT},
+            work_day         = #{workDay,jdbcType=TINYINT},
+            `status`         = #{status,jdbcType=TINYINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

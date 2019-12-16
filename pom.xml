@@ -15,6 +15,7 @@
         <module>common</module>
         <module>webuser</module>
         <module>webtechnologysharing</module>
+        <module>webprojectrequirements</module>
     </modules>
 
 
