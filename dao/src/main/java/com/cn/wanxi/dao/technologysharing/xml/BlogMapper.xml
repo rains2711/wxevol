@@ -7,28 +7,87 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.technologysharing.BlogEntity">
-        <id column="id" property="id"/>
-        <result column="title" property="title"/>
-        <result column="content" property="content"/>
-        <result column="author" property="author"/>
-        <result column="u_id" property="uId"/>
-        <result column="url" property="url"/>
-        <result column="create_time" property="createTime"/>
-        <result column="last_update_time" property="lastUpdateTime"/>
-        <result column="status" property="status"/>
-        <result column="praise_count" property="praiseCount"/>
-        <result column="desc" property="desc"/>
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="LONGVARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="u_id" property="uId" jdbcType="INTEGER"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="DATE"/>
+        <result column="last_update_time" property="lastUpdateTime" jdbcType="DATE"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="praise_count" property="praiseCount" jdbcType="INTEGER"/>
+        <result column="desc" property="desc" jdbcType="LONGVARCHAR"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, title, content, author, u_id, url, create_time, last_update_time, status, praise_count, desc
+        id, title, content, author, u_id, url, create_time, last_update_time, `status`, praise_count,
+        `desc`
     </sql>
 
     <insert id="insert" parameterType="com.cn.wanxi.entity.technologysharing.BlogEntity">
-        INSERT into
-                wx_tab_blog (title,content,author,uId,url,createTime,lastUpdateTime,status,praiseCount,`desc`)
-        values
-                (#{title},#{content},#{author},#{uId},#{url},#{createTime},#{lastUpdateTime},#{status},#{praiseCount}#{desc})
+        insert into wx_tab_blog(title, content, author, u_id, url, create_time, last_update_time, `status`,
+                                praise_count,
+                                `desc`)
+        values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}, #{author,jdbcType=VARCHAR},
+                #{uId,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE},
+                #{lastUpdateTime,jdbcType=DATE}, #{status,jdbcType=INTEGER}, #{praiseCount,jdbcType=INTEGER},
+                #{desc,jdbcType=LONGVARCHAR})
     </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete
+        from wx_tab_blog
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <update id="updateById" parameterType="com.cn.wanxi.entity.technologysharing.BlogEntity">
+        update wx_tab_blog
+        set title            = #{title,jdbcType=VARCHAR},
+            content          = #{content,jdbcType=LONGVARCHAR},
+            author           = #{author,jdbcType=VARCHAR},
+            u_id             = #{uId,jdbcType=INTEGER},
+            url              = #{url,jdbcType=VARCHAR},
+            create_time      = #{createTime,jdbcType=DATE},
+            last_update_time = #{lastUpdateTime,jdbcType=DATE},
+            `status`         = #{status,jdbcType=INTEGER},
+            praise_count     = #{praiseCount,jdbcType=INTEGER},
+            `desc`           = #{desc,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from wx_tab_blog where id = #{id,jdbcType=INTEGER};
+    </select>
+
+    <!--条件查询-->
+    <select id="findByWrapper">
+        select
+        <include refid="Base_Column_List"/>
+        from wx_tab_blog
+        <where>
+            <if test="id != null">and id = #{id,jdbcType=INTEGER}</if>
+            <if test="title != null">and title = #{title,jdbcType=VARCHAR}</if>
+            <if test="content != null">and content like CONCAT('%', CONCAT(#{content,jdbcType=LONGVARCHAR},'%'))</if>
+            <if test="author != null">and author = #{author,jdbcType=VARCHAR}</if>
+            <if test="u_id != null">and u_id = #{uId,jdbcType=INTEGER}</if>
+            <if test="url != null">and url = #{url,jdbcType=VARCHAR}</if>
+            <if test="create_time != null">and create_time = #{createTime,jdbcType=DATE}</if>
+            <if test="last_update_time != null">and last_update_time = #{lastUpdateTime,jdbcType=DATE}</if>
+            <if test="status != null">and `status` = #{status,jdbcType=INTEGER}</if>
+            <if test="status == null">and `status` = 1 or `status` = 0</if>
+            <if test="praise_count != null">and praise_count = #{praiseCount,jdbcType=INTEGER}</if>
+            <if test="desc != null">and `desc` like CONCAT('%', CONCAT(#{desc,jdbcType=LONGVARCHAR}, '%'))</if>
+        </where>
+    </select>
+
+    <select id="findAll" resultType="com.cn.wanxi.entity.technologysharing.BlogEntity">
+        select
+        <include refid="Base_Column_List"/>
+        from wx_tab_blog
+    </select>
+
 </mapper>
