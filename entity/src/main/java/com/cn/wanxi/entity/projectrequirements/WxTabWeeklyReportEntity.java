@@ -24,7 +24,10 @@ public class WxTabWeeklyReportEntity implements Serializable {
     /**
      * 提交成员编号
      */
-    private WxTabMemberEntity commitMember;
+    private Long commitMemberId;
+    /**
+     * 修改日期
+     */
     private Date updateTime;
     /**
      * 备注(0删除,1正常)
@@ -33,7 +36,7 @@ public class WxTabWeeklyReportEntity implements Serializable {
     /**
      * 所属项目周期编号
      */
-    private WxTabPeriodEntity period;
+    private Long periodId;
     /**
      * 周报内容
      */

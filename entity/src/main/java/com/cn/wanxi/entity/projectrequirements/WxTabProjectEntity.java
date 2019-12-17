@@ -25,7 +25,7 @@ public class WxTabProjectEntity implements Serializable {
     /**
      * 所属团队编号
      */
-    private WxTabTeamEntity team;
+    private Long teamId;
     /**
      * 项目创建日期
      */

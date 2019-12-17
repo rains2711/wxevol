@@ -41,4 +41,5 @@ public class WxTabTeamEntity implements Serializable {
      * 团队状态 备注(1:正常,0:关闭)
      */
     private Byte status;
+
 }

@@ -24,15 +24,15 @@ public class WxTabRequirementEntity implements Serializable {
     /**
      * 父级需求编号
      */
-    private WxTabRequirementEntity requirement;
+    private Long requirementId;
     /**
      * 所属任务单编号
      */
-    private WxTabTaskEntity task;
+    private Long taskId;
     /**
      * 需求所属项目编号
      */
-    private WxTabProjectEntity project;
+    private Long projectId;
     /**
      * 需求创建时间
      */

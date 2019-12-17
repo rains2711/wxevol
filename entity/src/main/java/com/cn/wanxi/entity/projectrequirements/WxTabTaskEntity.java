@@ -28,15 +28,15 @@ public class WxTabTaskEntity implements Serializable {
     /**
      * 父级任务编号
      */
-    private WxTabTaskEntity task;
+    private Long taskId;
     /**
      * 任务所属成员编号
      */
-    private WxTabMemberEntity member;
+    private Long memberId;
     /**
      * 任务所属项目编号
      */
-    private WxTabProjectEntity project;
+    private Long projectId;
     /**
      * 任务进度.备注(0~100,进度计算得出,非手动输入)
      */
