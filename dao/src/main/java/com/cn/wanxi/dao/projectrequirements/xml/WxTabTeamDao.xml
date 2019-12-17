@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabTeamDao">
-    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity">
+    <resultMap id="BaseResultMap" type="WxTabTeamEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="name" jdbcType="CHAR" property="name"/>
         <result column="create_time" jdbcType="DATE" property="createTime"/>
@@ -25,14 +25,14 @@
         where id = #{id,jdbcType=BIGINT}
     </delete>
     <insert id="insert" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity" useGeneratedKeys="true">
+            parameterType="WxTabTeamEntity" useGeneratedKeys="true">
         insert into wx_tab_team (`name`, create_time, update_time,
                                  superior_team_id, work_day, `status`)
         values (#{name,jdbcType=CHAR}, #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE},
                 #{superiorTeamId,jdbcType=BIGINT}, #{workDay,jdbcType=TINYINT}, #{status,jdbcType=TINYINT})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity" useGeneratedKeys="true">
+            parameterType="WxTabTeamEntity" useGeneratedKeys="true">
         insert into wx_tab_team
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="name != null">
@@ -75,7 +75,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="WxTabTeamEntity">
         update wx_tab_team
         <set>
             <if test="name != null">
@@ -99,7 +99,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity">
+    <update id="updateByPrimaryKey" parameterType="WxTabTeamEntity">
         update wx_tab_team
         set `name`           = #{name,jdbcType=CHAR},
             create_time      = #{createTime,jdbcType=DATE},

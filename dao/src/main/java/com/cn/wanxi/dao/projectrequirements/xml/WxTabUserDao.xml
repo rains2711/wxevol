@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabUserDao">
-    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.projectrequirements.WxTabUserEntity">
+    <resultMap id="BaseResultMap" type="WxTabUserEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="account" jdbcType="CHAR" property="account"/>
         <result column="password" jdbcType="CHAR" property="password"/>
@@ -21,12 +21,12 @@
         where id = #{id,jdbcType=BIGINT}
     </delete>
     <insert id="insert" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabUserEntity" useGeneratedKeys="true">
+            parameterType="WxTabUserEntity" useGeneratedKeys="true">
         insert into wx_tab_user (account, `password`)
         values (#{account,jdbcType=CHAR}, #{password,jdbcType=CHAR})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabUserEntity" useGeneratedKeys="true">
+            parameterType="WxTabUserEntity" useGeneratedKeys="true">
         insert into wx_tab_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="account != null">
@@ -45,7 +45,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabUserEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="WxTabUserEntity">
         update wx_tab_user
         <set>
             <if test="account != null">
@@ -57,7 +57,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabUserEntity">
+    <update id="updateByPrimaryKey" parameterType="WxTabUserEntity">
         update wx_tab_user
         set account    = #{account,jdbcType=CHAR},
             `password` = #{password,jdbcType=CHAR}

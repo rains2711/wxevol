@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabRequirementDao">
-    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity">
+    <resultMap id="BaseResultMap" type="WxTabRequirementEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="priority" jdbcType="TINYINT" property="priority"/>
         <result column="requirement_id" jdbcType="BIGINT" property="requirementId"/>
@@ -12,7 +12,7 @@
         <result column="status" jdbcType="TINYINT" property="status"/>
     </resultMap>
     <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
-               type="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity">
+               type="WxTabRequirementEntity">
         <result column="description" jdbcType="LONGVARCHAR" property="description"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -35,7 +35,7 @@
         where id = #{id,jdbcType=BIGINT}
     </delete>
     <insert id="insert" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity" useGeneratedKeys="true">
+            parameterType="WxTabRequirementEntity" useGeneratedKeys="true">
         insert into wx_tab_requirement (priority, requirement_id, task_id,
                                         project_id, create_time, update_time,
                                         `status`, description)
@@ -44,7 +44,7 @@
                 #{status,jdbcType=TINYINT}, #{description,jdbcType=LONGVARCHAR})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity" useGeneratedKeys="true">
+            parameterType="WxTabRequirementEntity" useGeneratedKeys="true">
         insert into wx_tab_requirement
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="priority != null">
@@ -100,7 +100,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity">
+            parameterType="WxTabRequirementEntity">
         update wx_tab_requirement
         <set>
             <if test="priority != null">
@@ -131,7 +131,7 @@
         where id = #{id,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKeyWithBLOBs"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity">
+            parameterType="WxTabRequirementEntity">
         update wx_tab_requirement
         set priority       = #{priority,jdbcType=TINYINT},
             requirement_id = #{requirementId,jdbcType=BIGINT},
@@ -143,7 +143,7 @@
             description    = #{description,jdbcType=LONGVARCHAR}
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity">
+    <update id="updateByPrimaryKey" parameterType="WxTabRequirementEntity">
         update wx_tab_requirement
         set priority       = #{priority,jdbcType=TINYINT},
             requirement_id = #{requirementId,jdbcType=BIGINT},

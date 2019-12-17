@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabMemberDao">
-    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.projectrequirements.WxTabMemberEntity">
+    <resultMap id="BaseResultMap" type="WxTabMemberEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="user_id" jdbcType="BIGINT" property="userId"/>
         <result column="name" jdbcType="CHAR" property="name"/>
@@ -26,7 +26,7 @@
         where id = #{id,jdbcType=BIGINT}
     </delete>
     <insert id="insert" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabMemberEntity" useGeneratedKeys="true">
+            parameterType="WxTabMemberEntity" useGeneratedKeys="true">
         insert into wx_tab_member (user_id, `name`, role_id,
                                    team_id, create_time, update_time,
                                    `status`)
@@ -35,7 +35,7 @@
                 #{status,jdbcType=TINYINT})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabMemberEntity" useGeneratedKeys="true">
+            parameterType="WxTabMemberEntity" useGeneratedKeys="true">
         insert into wx_tab_member
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userId != null">
@@ -84,7 +84,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabMemberEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="WxTabMemberEntity">
         update wx_tab_member
         <set>
             <if test="userId != null">
@@ -111,7 +111,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabMemberEntity">
+    <update id="updateByPrimaryKey" parameterType="WxTabMemberEntity">
         update wx_tab_member
         set user_id     = #{userId,jdbcType=BIGINT},
             `name`      = #{name,jdbcType=CHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabPeriodDao">
-    <resultMap id="BaseResultMap" type="com.cn.wanxi.entity.projectrequirements.WxTabPeriodEntity">
+    <resultMap id="BaseResultMap" type="WxTabPeriodEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="project_id" jdbcType="BIGINT" property="projectId"/>
         <result column="project_progress" jdbcType="TINYINT" property="projectProgress"/>
@@ -21,12 +21,12 @@
         where id = #{id,jdbcType=BIGINT}
     </delete>
     <insert id="insert" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabPeriodEntity" useGeneratedKeys="true">
+            parameterType="WxTabPeriodEntity" useGeneratedKeys="true">
         insert into wx_tab_period (project_id, project_progress)
         values (#{projectId,jdbcType=BIGINT}, #{projectProgress,jdbcType=TINYINT})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
-            parameterType="com.cn.wanxi.entity.projectrequirements.WxTabPeriodEntity" useGeneratedKeys="true">
+            parameterType="WxTabPeriodEntity" useGeneratedKeys="true">
         insert into wx_tab_period
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="projectId != null">
@@ -45,7 +45,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabPeriodEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="WxTabPeriodEntity">
         update wx_tab_period
         <set>
             <if test="projectId != null">
@@ -57,7 +57,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.cn.wanxi.entity.projectrequirements.WxTabPeriodEntity">
+    <update id="updateByPrimaryKey" parameterType="WxTabPeriodEntity">
         update wx_tab_period
         set project_id       = #{projectId,jdbcType=BIGINT},
             project_progress = #{projectProgress,jdbcType=TINYINT}

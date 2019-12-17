@@ -14,8 +14,9 @@
         <typeAlias alias="Date" type="java.util.Date"/>
         <typeAlias alias="WxTabMemberEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabMemberEntity"/>
         <typeAlias alias="WxTabProjectEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabProjectEntity"/>
-        <typeAlias alias="WxTabRequirementEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabTaskEntity"/>
-        <typeAlias alias="RequirementEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity"/>
+        <typeAlias alias="WxTabTaskEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabTaskEntity"/>
+        <typeAlias alias="WxTabRequirementEntity"
+                   type="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity"/>
         <typeAlias alias="WxTabTeamEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity"/>
         <typeAlias alias="WxTabPeriodEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabPeriodEntity"/>
         <typeAlias alias="WxTabDailyEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity"/>
