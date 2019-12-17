@@ -19,7 +19,7 @@ public class WxTabPeriodEntity implements Serializable {
     /**
      * 项目编号
      */
-    private Long projectId;
+    private WxTabProjectEntity project;
     /**
      * 备注(0~100,根据所有任务进度计算得出,非手动输入)
      */

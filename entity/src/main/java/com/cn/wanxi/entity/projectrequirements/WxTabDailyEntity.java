@@ -24,7 +24,7 @@ public class WxTabDailyEntity implements Serializable {
     /**
      * 提交成员编号
      */
-    private Long commitMemberId;
+    private WxTabMemberEntity commitMember;
     /**
      * 修改日期
      */
@@ -36,7 +36,7 @@ public class WxTabDailyEntity implements Serializable {
     /**
      * 所属项目周期编号
      */
-    private Long periodId;
+    private WxTabPeriodEntity period;
     /**
      * 日报内容
      */
