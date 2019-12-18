@@ -6,18 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface WxTabProjectDao {
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(WxTabProjectEntity record);
-
-    int insertSelective(WxTabProjectEntity record);
-
-    WxTabProjectEntity selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(WxTabProjectEntity record);
-
-    int updateByPrimaryKeyWithBLOBs(WxTabProjectEntity record);
-
-    int updateByPrimaryKey(WxTabProjectEntity record);
+public interface WxTabProjectDao extends MyBatisBaseDao<WxTabProjectEntity, Long> {
 }

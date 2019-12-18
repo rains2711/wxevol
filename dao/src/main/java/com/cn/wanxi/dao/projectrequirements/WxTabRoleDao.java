@@ -6,16 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface WxTabRoleDao {
-    int deleteByPrimaryKey(Integer id);
+public interface WxTabRoleDao extends MyBatisBaseDao<WxTabRoleEntity, Integer> {
 
-    int insert(WxTabRoleEntity record);
-
-    int insertSelective(WxTabRoleEntity record);
-
-    WxTabRoleEntity selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(WxTabRoleEntity record);
-
-    int updateByPrimaryKey(WxTabRoleEntity record);
 }

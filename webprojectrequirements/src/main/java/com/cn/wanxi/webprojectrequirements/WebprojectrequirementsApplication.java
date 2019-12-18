@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WebprojectrequirementsApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(WebprojectrequirementsApplication.class, args);
     }
 

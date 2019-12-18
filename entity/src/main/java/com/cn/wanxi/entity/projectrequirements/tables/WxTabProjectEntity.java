@@ -16,7 +16,7 @@ public class WxTabProjectEntity implements Serializable {
     /**
      * 项目编号
      */
-    private Integer id;
+    private Long id;
     /**
      * 项目名称
      */

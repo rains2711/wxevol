@@ -11,6 +11,7 @@ import java.io.Serializable;
  */
 @Data
 public class WxTabDailyEntity implements Serializable {
+
     private static final long serialVersionUID = 1L;
     /**
      * 日报编号

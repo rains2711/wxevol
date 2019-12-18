@@ -6,16 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface WxTabTeamDao {
-    int deleteByPrimaryKey(Long id);
+public interface WxTabTeamDao extends MyBatisBaseDao<WxTabTeamEntity, Long> {
 
-    int insert(WxTabTeamEntity record);
-
-    int insertSelective(WxTabTeamEntity record);
-
-    WxTabTeamEntity selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(WxTabTeamEntity record);
-
-    int updateByPrimaryKey(WxTabTeamEntity record);
 }
