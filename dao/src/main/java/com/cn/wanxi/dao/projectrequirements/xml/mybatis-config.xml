@@ -12,17 +12,17 @@
         <typeAlias alias="LinkedList" type="java.util.LinkedList"/>
         <typeAlias alias="String" type="java.lang.String"/>
         <typeAlias alias="Date" type="java.util.Date"/>
-        <typeAlias alias="WxTabMemberEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabMemberEntity"/>
-        <typeAlias alias="WxTabProjectEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabProjectEntity"/>
-        <typeAlias alias="WxTabTaskEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabTaskEntity"/>
+        <typeAlias alias="WxTabMemberEntity" type="com.cn.wanxi.entity.projectrequirements.tables.WxTabMemberEntity"/>
+        <typeAlias alias="WxTabProjectEntity" type="com.cn.wanxi.entity.projectrequirements.tables.WxTabProjectEntity"/>
+        <typeAlias alias="WxTabTaskEntity" type="com.cn.wanxi.entity.projectrequirements.tables.WxTabTaskEntity"/>
         <typeAlias alias="WxTabRequirementEntity"
-                   type="com.cn.wanxi.entity.projectrequirements.WxTabRequirementEntity"/>
-        <typeAlias alias="WxTabTeamEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity"/>
-        <typeAlias alias="WxTabPeriodEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabPeriodEntity"/>
-        <typeAlias alias="WxTabDailyEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity"/>
+                   type="com.cn.wanxi.entity.projectrequirements.tables.WxTabRequirementEntity"/>
+        <typeAlias alias="WxTabTeamEntity" type="com.cn.wanxi.entity.projectrequirements.tables.WxTabTeamEntity"/>
+        <typeAlias alias="WxTabPeriodEntity" type="com.cn.wanxi.entity.projectrequirements.tables.WxTabPeriodEntity"/>
+        <typeAlias alias="WxTabDailyEntity" type="com.cn.wanxi.entity.projectrequirements.tables.WxTabDailyEntity"/>
         <typeAlias alias="WxTabWeeklyReportEntity"
-                   type="com.cn.wanxi.entity.projectrequirements.WxTabWeeklyReportEntity"/>
-        <typeAlias alias="WxTabRoleEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabRoleEntity"/>
-        <typeAlias alias="WxTabUserEntity" type="com.cn.wanxi.entity.projectrequirements.WxTabUserEntity"/>
+                   type="com.cn.wanxi.entity.projectrequirements.tables.WxTabWeeklyReportEntity"/>
+        <typeAlias alias="WxTabRoleEntity" type="com.cn.wanxi.entity.projectrequirements.tables.WxTabRoleEntity"/>
+        <typeAlias alias="WxTabUserEntity" type="com.cn.wanxi.entity.projectrequirements.tables.WxTabUserEntity"/>
     </typeAliases>
 </configuration>

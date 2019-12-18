@@ -1,4 +1,4 @@
-package com.cn.wanxi.entity.projectrequirements;
+package com.cn.wanxi.entity.projectrequirements.tables;
 
 import lombok.Data;
 

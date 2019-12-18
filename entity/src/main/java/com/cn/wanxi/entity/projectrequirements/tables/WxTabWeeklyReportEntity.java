@@ -1,9 +1,8 @@
-package com.cn.wanxi.entity.projectrequirements;
+package com.cn.wanxi.entity.projectrequirements.tables;
 
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * wx_tab_weekly_report
@@ -20,7 +19,7 @@ public class WxTabWeeklyReportEntity implements Serializable {
     /**
      * 周报提交日期
      */
-    private Date commitTime;
+    private Long commitTime;
     /**
      * 提交成员编号
      */
@@ -28,7 +27,7 @@ public class WxTabWeeklyReportEntity implements Serializable {
     /**
      * 修改日期
      */
-    private Date updateTime;
+    private Long updateTime;
     /**
      * 备注(0删除,1正常)
      */

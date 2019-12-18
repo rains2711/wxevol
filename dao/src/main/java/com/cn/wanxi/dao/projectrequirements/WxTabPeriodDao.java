@@ -1,6 +1,6 @@
 package com.cn.wanxi.dao.projectrequirements;
 
-import com.cn.wanxi.entity.projectrequirements.WxTabPeriodEntity;
+import com.cn.wanxi.entity.projectrequirements.tables.WxTabPeriodEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 

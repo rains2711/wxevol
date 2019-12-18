@@ -7,8 +7,8 @@
         <result column="requirement_id" jdbcType="BIGINT" property="requirementId"/>
         <result column="task_id" jdbcType="BIGINT" property="taskId"/>
         <result column="project_id" jdbcType="BIGINT" property="projectId"/>
-        <result column="create_time" jdbcType="DATE" property="createTime"/>
-        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
     </resultMap>
     <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
@@ -40,7 +40,7 @@
                                         project_id, create_time, update_time,
                                         `status`, description)
         values (#{priority,jdbcType=TINYINT}, #{requirementId,jdbcType=BIGINT}, #{taskId,jdbcType=BIGINT},
-                #{projectId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE},
+                #{projectId,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT},
                 #{status,jdbcType=TINYINT}, #{description,jdbcType=LONGVARCHAR})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
@@ -86,10 +86,10 @@
                 #{projectId,jdbcType=BIGINT},
             </if>
             <if test="createTime != null">
-                #{createTime,jdbcType=DATE},
+                #{createTime,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=DATE},
+                #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="status != null">
                 #{status,jdbcType=TINYINT},
@@ -116,10 +116,10 @@
                 project_id = #{projectId,jdbcType=BIGINT},
             </if>
             <if test="createTime != null">
-                create_time = #{createTime,jdbcType=DATE},
+                create_time = #{createTime,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=DATE},
+                update_time = #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="status != null">
                 `status` = #{status,jdbcType=TINYINT},
@@ -137,8 +137,8 @@
             requirement_id = #{requirementId,jdbcType=BIGINT},
             task_id        = #{taskId,jdbcType=BIGINT},
             project_id     = #{projectId,jdbcType=BIGINT},
-            create_time    = #{createTime,jdbcType=DATE},
-            update_time    = #{updateTime,jdbcType=DATE},
+            create_time    = #{createTime,jdbcType=BIGINT},
+            update_time    = #{updateTime,jdbcType=BIGINT},
             `status`       = #{status,jdbcType=TINYINT},
             description    = #{description,jdbcType=LONGVARCHAR}
         where id = #{id,jdbcType=BIGINT}
@@ -149,8 +149,8 @@
             requirement_id = #{requirementId,jdbcType=BIGINT},
             task_id        = #{taskId,jdbcType=BIGINT},
             project_id     = #{projectId,jdbcType=BIGINT},
-            create_time    = #{createTime,jdbcType=DATE},
-            update_time    = #{updateTime,jdbcType=DATE},
+            create_time    = #{createTime,jdbcType=BIGINT},
+            update_time    = #{updateTime,jdbcType=BIGINT},
             `status`       = #{status,jdbcType=TINYINT}
         where id = #{id,jdbcType=BIGINT}
     </update>

@@ -1,6 +1,6 @@
 package com.cn.wanxi.dao.projectrequirements;
 
-import com.cn.wanxi.entity.projectrequirements.WxTabTeamEntity;
+import com.cn.wanxi.entity.projectrequirements.tables.WxTabTeamEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

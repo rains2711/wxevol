@@ -7,8 +7,8 @@
         <result column="name" jdbcType="CHAR" property="name"/>
         <result column="role_id" jdbcType="INTEGER" property="roleId"/>
         <result column="team_id" jdbcType="BIGINT" property="teamId"/>
-        <result column="create_time" jdbcType="DATE" property="createTime"/>
-        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -31,7 +31,7 @@
                                    team_id, create_time, update_time,
                                    `status`)
         values (#{userId,jdbcType=BIGINT}, #{name,jdbcType=CHAR}, #{roleId,jdbcType=INTEGER},
-                #{teamId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE},
+                #{teamId,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT},
                 #{status,jdbcType=TINYINT})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
@@ -74,10 +74,10 @@
                 #{teamId,jdbcType=BIGINT},
             </if>
             <if test="createTime != null">
-                #{createTime,jdbcType=DATE},
+                #{createTime,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=DATE},
+                #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="status != null">
                 #{status,jdbcType=TINYINT},
@@ -100,10 +100,10 @@
                 team_id = #{teamId,jdbcType=BIGINT},
             </if>
             <if test="createTime != null">
-                create_time = #{createTime,jdbcType=DATE},
+                create_time = #{createTime,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=DATE},
+                update_time = #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="status != null">
                 `status` = #{status,jdbcType=TINYINT},
@@ -117,8 +117,8 @@
             `name`      = #{name,jdbcType=CHAR},
             role_id     = #{roleId,jdbcType=INTEGER},
             team_id     = #{teamId,jdbcType=BIGINT},
-            create_time = #{createTime,jdbcType=DATE},
-            update_time = #{updateTime,jdbcType=DATE},
+            create_time = #{createTime,jdbcType=BIGINT},
+            update_time = #{updateTime,jdbcType=BIGINT},
             `status`    = #{status,jdbcType=TINYINT}
         where id = #{id,jdbcType=BIGINT}
     </update>

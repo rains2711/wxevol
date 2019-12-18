@@ -1,9 +1,8 @@
-package com.cn.wanxi.entity.projectrequirements;
+package com.cn.wanxi.entity.projectrequirements.tables;
 
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * wx_tab_team
@@ -24,11 +23,11 @@ public class WxTabTeamEntity implements Serializable {
     /**
      * 创建日期
      */
-    private Date createTime;
+    private Long createTime;
     /**
      * 修改日期
      */
-    private Date updateTime;
+    private Long updateTime;
     /**
      * 上级团队编号
      */

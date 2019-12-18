@@ -1,7 +1,7 @@
 package com.cn.wanxi.dao.projectrequirements;
 
 
-import com.cn.wanxi.entity.projectrequirements.WxTabDailyEntity;
+import com.cn.wanxi.entity.projectrequirements.tables.WxTabDailyEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 

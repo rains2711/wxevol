@@ -1,10 +1,9 @@
-package com.cn.wanxi.entity.projectrequirements;
+package com.cn.wanxi.entity.projectrequirements.tables;
 
 import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * wx_tab_project
@@ -29,15 +28,15 @@ public class WxTabProjectEntity implements Serializable {
     /**
      * 项目创建日期
      */
-    private Date createTime;
+    private Long createTime;
     /**
      * 修改日期
      */
-    private Date updateTime;
+    private Long updateTime;
     /**
      * 启动日期
      */
-    private Date startTime;
+    private Long startTime;
     /**
      * 备注(单位:元)
      */

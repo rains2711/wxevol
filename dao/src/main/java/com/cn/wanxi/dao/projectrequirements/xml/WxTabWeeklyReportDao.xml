@@ -3,9 +3,9 @@
 <mapper namespace="com.cn.wanxi.dao.projectrequirements.WxTabWeeklyReportDao">
     <resultMap id="BaseResultMap" type="WxTabWeeklyReportEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="commit_time" jdbcType="DATE" property="commitTime"/>
+        <result column="commit_time" jdbcType="BIGINT" property="commitTime"/>
         <result column="commit_member_id" jdbcType="BIGINT" property="commitMemberId"/>
-        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
         <result column="period_id" jdbcType="BIGINT" property="periodId"/>
     </resultMap>
@@ -36,7 +36,7 @@
             parameterType="WxTabWeeklyReportEntity" useGeneratedKeys="true">
         insert into wx_tab_weekly_report (commit_time, commit_member_id, update_time,
                                           `status`, period_id, content)
-        values (#{commitTime,jdbcType=DATE}, #{commitMemberId,jdbcType=BIGINT}, #{updateTime,jdbcType=DATE},
+        values (#{commitTime,jdbcType=BIGINT}, #{commitMemberId,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT},
                 #{status,jdbcType=TINYINT}, #{periodId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
@@ -64,13 +64,13 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="commitTime != null">
-                #{commitTime,jdbcType=DATE},
+                #{commitTime,jdbcType=BIGINT},
             </if>
             <if test="commitMemberId != null">
                 #{commitMemberId,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=DATE},
+                #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="status != null">
                 #{status,jdbcType=TINYINT},
@@ -88,13 +88,13 @@
         update wx_tab_weekly_report
         <set>
             <if test="commitTime != null">
-                commit_time = #{commitTime,jdbcType=DATE},
+                commit_time = #{commitTime,jdbcType=BIGINT},
             </if>
             <if test="commitMemberId != null">
                 commit_member_id = #{commitMemberId,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=DATE},
+                update_time = #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="status != null">
                 `status` = #{status,jdbcType=TINYINT},
@@ -111,9 +111,9 @@
     <update id="updateByPrimaryKeyWithBLOBs"
             parameterType="WxTabWeeklyReportEntity">
         update wx_tab_weekly_report
-        set commit_time      = #{commitTime,jdbcType=DATE},
+        set commit_time      = #{commitTime,jdbcType=BIGINT},
             commit_member_id = #{commitMemberId,jdbcType=BIGINT},
-            update_time      = #{updateTime,jdbcType=DATE},
+            update_time      = #{updateTime,jdbcType=BIGINT},
             `status`         = #{status,jdbcType=TINYINT},
             period_id        = #{periodId,jdbcType=BIGINT},
             content          = #{content,jdbcType=LONGVARCHAR}
@@ -121,9 +121,9 @@
     </update>
     <update id="updateByPrimaryKey" parameterType="WxTabWeeklyReportEntity">
         update wx_tab_weekly_report
-        set commit_time      = #{commitTime,jdbcType=DATE},
+        set commit_time      = #{commitTime,jdbcType=BIGINT},
             commit_member_id = #{commitMemberId,jdbcType=BIGINT},
-            update_time      = #{updateTime,jdbcType=DATE},
+            update_time      = #{updateTime,jdbcType=BIGINT},
             `status`         = #{status,jdbcType=TINYINT},
             period_id        = #{periodId,jdbcType=BIGINT}
         where id = #{id,jdbcType=BIGINT}

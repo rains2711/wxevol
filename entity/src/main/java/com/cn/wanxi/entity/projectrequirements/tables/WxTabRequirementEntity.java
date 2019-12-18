@@ -1,9 +1,8 @@
-package com.cn.wanxi.entity.projectrequirements;
+package com.cn.wanxi.entity.projectrequirements.tables;
 
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * wx_tab_requirement
@@ -36,13 +35,13 @@ public class WxTabRequirementEntity implements Serializable {
     /**
      * 需求创建时间
      */
-    private Date createTime;
+    private Long createTime;
     /**
      * 修改时间
      */
-    private Date updateTime;
+    private Long updateTime;
     /**
-     * 需求状态:备注(0:取消,1:待分配,2:已分配)此处分配为归档于任务单
+     * 需求优先级,备注(1>2>3>4>5=最高,较高,普通,较低,最低)
      */
     private Byte status;
     /**

@@ -5,9 +5,9 @@
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="CHAR" property="name"/>
         <result column="team_id" jdbcType="BIGINT" property="teamId"/>
-        <result column="create_time" jdbcType="DATE" property="createTime"/>
-        <result column="update_time" jdbcType="DATE" property="updateTime"/>
-        <result column="start_time" jdbcType="DATE" property="startTime"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
+        <result column="start_time" jdbcType="BIGINT" property="startTime"/>
         <result column="start_capital" jdbcType="DECIMAL" property="startCapital"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
     </resultMap>
@@ -39,8 +39,8 @@
         insert into wx_tab_project (`name`, team_id, create_time,
                                     update_time, start_time, start_capital,
                                     `status`, description)
-        values (#{name,jdbcType=CHAR}, #{teamId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE},
-                #{updateTime,jdbcType=DATE}, #{startTime,jdbcType=DATE}, #{startCapital,jdbcType=DECIMAL},
+        values (#{name,jdbcType=CHAR}, #{teamId,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT},
+                #{updateTime,jdbcType=BIGINT}, #{startTime,jdbcType=BIGINT}, #{startCapital,jdbcType=DECIMAL},
                 #{status,jdbcType=TINYINT}, #{description,jdbcType=LONGVARCHAR})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
@@ -80,13 +80,13 @@
                 #{teamId,jdbcType=BIGINT},
             </if>
             <if test="createTime != null">
-                #{createTime,jdbcType=DATE},
+                #{createTime,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=DATE},
+                #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="startTime != null">
-                #{startTime,jdbcType=DATE},
+                #{startTime,jdbcType=BIGINT},
             </if>
             <if test="startCapital != null">
                 #{startCapital,jdbcType=DECIMAL},
@@ -109,13 +109,13 @@
                 team_id = #{teamId,jdbcType=BIGINT},
             </if>
             <if test="createTime != null">
-                create_time = #{createTime,jdbcType=DATE},
+                create_time = #{createTime,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=DATE},
+                update_time = #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="startTime != null">
-                start_time = #{startTime,jdbcType=DATE},
+                start_time = #{startTime,jdbcType=BIGINT},
             </if>
             <if test="startCapital != null">
                 start_capital = #{startCapital,jdbcType=DECIMAL},
@@ -133,9 +133,9 @@
         update wx_tab_project
         set `name`        = #{name,jdbcType=CHAR},
             team_id       = #{teamId,jdbcType=BIGINT},
-            create_time   = #{createTime,jdbcType=DATE},
-            update_time   = #{updateTime,jdbcType=DATE},
-            start_time    = #{startTime,jdbcType=DATE},
+            create_time   = #{createTime,jdbcType=BIGINT},
+            update_time   = #{updateTime,jdbcType=BIGINT},
+            start_time    = #{startTime,jdbcType=BIGINT},
             start_capital = #{startCapital,jdbcType=DECIMAL},
             `status`      = #{status,jdbcType=TINYINT},
             description   = #{description,jdbcType=LONGVARCHAR}
@@ -145,9 +145,9 @@
         update wx_tab_project
         set `name`        = #{name,jdbcType=CHAR},
             team_id       = #{teamId,jdbcType=BIGINT},
-            create_time   = #{createTime,jdbcType=DATE},
-            update_time   = #{updateTime,jdbcType=DATE},
-            start_time    = #{startTime,jdbcType=DATE},
+            create_time   = #{createTime,jdbcType=BIGINT},
+            update_time   = #{updateTime,jdbcType=BIGINT},
+            start_time    = #{startTime,jdbcType=BIGINT},
             start_capital = #{startCapital,jdbcType=DECIMAL},
             `status`      = #{status,jdbcType=TINYINT}
         where id = #{id,jdbcType=INTEGER}

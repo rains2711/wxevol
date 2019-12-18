@@ -4,8 +4,8 @@
     <resultMap id="BaseResultMap" type="WxTabTeamEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="name" jdbcType="CHAR" property="name"/>
-        <result column="create_time" jdbcType="DATE" property="createTime"/>
-        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
         <result column="superior_team_id" jdbcType="BIGINT" property="superiorTeamId"/>
         <result column="work_day" jdbcType="TINYINT" property="workDay"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
@@ -28,7 +28,7 @@
             parameterType="WxTabTeamEntity" useGeneratedKeys="true">
         insert into wx_tab_team (`name`, create_time, update_time,
                                  superior_team_id, work_day, `status`)
-        values (#{name,jdbcType=CHAR}, #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE},
+        values (#{name,jdbcType=CHAR}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT},
                 #{superiorTeamId,jdbcType=BIGINT}, #{workDay,jdbcType=TINYINT}, #{status,jdbcType=TINYINT})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
@@ -59,10 +59,10 @@
                 #{name,jdbcType=CHAR},
             </if>
             <if test="createTime != null">
-                #{createTime,jdbcType=DATE},
+                #{createTime,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=DATE},
+                #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="superiorTeamId != null">
                 #{superiorTeamId,jdbcType=BIGINT},
@@ -82,10 +82,10 @@
                 `name` = #{name,jdbcType=CHAR},
             </if>
             <if test="createTime != null">
-                create_time = #{createTime,jdbcType=DATE},
+                create_time = #{createTime,jdbcType=BIGINT},
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=DATE},
+                update_time = #{updateTime,jdbcType=BIGINT},
             </if>
             <if test="superiorTeamId != null">
                 superior_team_id = #{superiorTeamId,jdbcType=BIGINT},
@@ -102,8 +102,8 @@
     <update id="updateByPrimaryKey" parameterType="WxTabTeamEntity">
         update wx_tab_team
         set `name`           = #{name,jdbcType=CHAR},
-            create_time      = #{createTime,jdbcType=DATE},
-            update_time      = #{updateTime,jdbcType=DATE},
+            create_time      = #{createTime,jdbcType=BIGINT},
+            update_time      = #{updateTime,jdbcType=BIGINT},
             superior_team_id = #{superiorTeamId,jdbcType=BIGINT},
             work_day         = #{workDay,jdbcType=TINYINT},
             `status`         = #{status,jdbcType=TINYINT}
