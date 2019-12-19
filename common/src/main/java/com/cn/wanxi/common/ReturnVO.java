@@ -68,6 +68,12 @@ public class ReturnVO {
         return success(messageEnum, null);
     }
 
+    /**
+     * 失败响应，无响应数据
+     *
+     * @param messageEnum 消息
+     * @return vo
+     */
     public static ReturnVO error(MessageEnum messageEnum) {
         return new ReturnVO(messageEnum.getCode(), messageEnum.getMsg());
     }
