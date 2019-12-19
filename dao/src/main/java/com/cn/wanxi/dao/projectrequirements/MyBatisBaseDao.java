@@ -22,7 +22,7 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
 
     /**
      * <p>
-     * 插入一条记录
+     * 全字段插入一条记录
      * </p>
      *
      * @param entity 实体对象
@@ -32,7 +32,7 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
 
     /**
      * <p>
-     * 插入一条记录
+     * 字段动态插入一条记录
      * </p>
      *
      * @param entity 实体对象
@@ -52,7 +52,7 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
 
     /**
      * <p>
-     * 根据 ID 修改
+     * 根据 ID 字段动态修改
      * </p>
      *
      * @param entity 实体对象
@@ -62,7 +62,7 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
 
     /**
      * <p>
-     * 根据 ID 修改
+     * 根据 ID 修改全部字段
      * </p>
      *
      * @param entity 实体对象
@@ -72,7 +72,7 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
 
     /**
      * <p>
-     * 根据 ID 修改
+     * 根据 ID 修改部分字段 不包含大内容字段
      * </p>
      *
      * @param entity 实体对象
