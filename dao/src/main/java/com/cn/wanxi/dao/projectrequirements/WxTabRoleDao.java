@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface WxTabRoleDao extends MyBatisBaseDao<WxTabRoleEntity, Integer> {
+public interface WxTabRoleDao extends MyBatisBaseDao<WxTabRoleEntity> {
 
 }

@@ -19,7 +19,7 @@
         id, priority, requirement_id, task_id, project_id, create_time, update_time, `status`
     </sql>
     <sql id="Blob_Column_List">
-        description
+        `description`
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
         select
@@ -34,7 +34,7 @@
         from wx_tab_requirement
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="WxTabRequirementEntity" useGeneratedKeys="true">
         insert into wx_tab_requirement (priority, requirement_id, task_id,
                                         project_id, create_time, update_time,
@@ -42,7 +42,7 @@
         values (#{priority,jdbcType=TINYINT}, #{requirementId,jdbcType=BIGINT}, #{taskId,jdbcType=BIGINT},
                 #{projectId,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT},
                 #{status,jdbcType=TINYINT}, #{description,jdbcType=LONGVARCHAR})
-    </insert>
+    </insert>-->
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="WxTabRequirementEntity" useGeneratedKeys="true">
         insert into wx_tab_requirement
@@ -130,7 +130,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs"
+    <!--<update id="updateByPrimaryKeyWithBLOBs"
             parameterType="WxTabRequirementEntity">
         update wx_tab_requirement
         set priority       = #{priority,jdbcType=TINYINT},
@@ -153,5 +153,5 @@
             update_time    = #{updateTime,jdbcType=BIGINT},
             `status`       = #{status,jdbcType=TINYINT}
         where id = #{id,jdbcType=BIGINT}
-    </update>
+    </update>-->
 </mapper>

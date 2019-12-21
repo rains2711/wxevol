@@ -1,24 +1,21 @@
 package com.cn.wanxi.dao.projectrequirements;
 
-import java.io.Serializable;
-
 /**
  * DAO公共基类，由MybatisGenerator自动生成请勿修改
  *
  * @param <Entity> The Entity Class 这里是泛型不是Model类
- * @param <PK>     The Primary Key Class 如果是无主键，则可以用Model来跳过，如果是多主键则是Key类
  * @author MybatisGenerator
  */
-public interface MyBatisBaseDao<Entity, PK extends Serializable> {
+public interface MyBatisBaseDao<Entity> {
     /**
      * <p>
      * 根据 ID 删除
      * </p>
      *
-     * @param id 主键ID
+     * @param entity 实体对象
      * @return int
      */
-    int deleteByPrimaryKey(PK id);
+    int deleteByPrimaryKey(Entity entity);
 
     /**
      * <p>
@@ -28,7 +25,7 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
      * @param entity 实体对象
      * @return int
      */
-    int insert(Entity entity);
+//    int insert(Entity entity);
 
     /**
      * <p>
@@ -45,10 +42,10 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
      * 根据 ID 查询
      * </p>
      *
-     * @param id 主键ID
+     * @param entity 实体对象
      * @return T
      */
-    Entity selectByPrimaryKey(PK id);
+    Entity selectByPrimaryKey(Entity entity);
 
     /**
      * <p>
@@ -68,7 +65,7 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
      * @param entity 实体对象
      * @return int
      */
-    int updateByPrimaryKeyWithBLOBs(Entity entity);
+//    int updateByPrimaryKeyWithBLOBs(Entity entity);
 
     /**
      * <p>
@@ -78,5 +75,5 @@ public interface MyBatisBaseDao<Entity, PK extends Serializable> {
      * @param entity 实体对象
      * @return int
      */
-    int updateByPrimaryKey(Entity entity);
+//    int updateByPrimaryKey(Entity entity);
 }

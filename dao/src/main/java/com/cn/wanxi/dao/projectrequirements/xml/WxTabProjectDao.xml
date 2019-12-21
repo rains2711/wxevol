@@ -34,7 +34,7 @@
         from wx_tab_project
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="WxTabProjectEntity" useGeneratedKeys="true">
         insert into wx_tab_project (`name`, team_id, create_time,
                                     update_time, start_time, start_capital,
@@ -42,7 +42,7 @@
         values (#{name,jdbcType=CHAR}, #{teamId,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT},
                 #{updateTime,jdbcType=BIGINT}, #{startTime,jdbcType=BIGINT}, #{startCapital,jdbcType=DECIMAL},
                 #{status,jdbcType=TINYINT}, #{description,jdbcType=LONGVARCHAR})
-    </insert>
+    </insert>-->
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="WxTabProjectEntity" useGeneratedKeys="true">
         insert into wx_tab_project
@@ -129,7 +129,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs" parameterType="WxTabProjectEntity">
+    <!--<update id="updateByPrimaryKeyWithBLOBs" parameterType="WxTabProjectEntity">
         update wx_tab_project
         set `name`        = #{name,jdbcType=CHAR},
             team_id       = #{teamId,jdbcType=BIGINT},
@@ -151,5 +151,5 @@
             start_capital = #{startCapital,jdbcType=DECIMAL},
             `status`      = #{status,jdbcType=TINYINT}
         where id = #{id,jdbcType=INTEGER}
-    </update>
+    </update>-->
 </mapper>

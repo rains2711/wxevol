@@ -20,11 +20,11 @@
         from wx_tab_role
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="WxTabRoleEntity" useGeneratedKeys="true">
         insert into wx_tab_role (`name`, authority)
         values (#{name,jdbcType=CHAR}, #{authority,jdbcType=VARCHAR})
-    </insert>
+    </insert>-->
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="WxTabRoleEntity" useGeneratedKeys="true">
         insert into wx_tab_role
@@ -57,10 +57,10 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="WxTabRoleEntity">
+    <!--<update id="updateByPrimaryKey" parameterType="WxTabRoleEntity">
         update wx_tab_role
         set `name`    = #{name,jdbcType=CHAR},
             authority = #{authority,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
-    </update>
+    </update>-->
 </mapper>

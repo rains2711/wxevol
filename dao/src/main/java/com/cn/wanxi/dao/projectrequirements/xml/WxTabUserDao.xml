@@ -20,11 +20,11 @@
         from wx_tab_user
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="WxTabUserEntity" useGeneratedKeys="true">
         insert into wx_tab_user (account, `password`)
         values (#{account,jdbcType=CHAR}, #{password,jdbcType=CHAR})
-    </insert>
+    </insert>-->
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="WxTabUserEntity" useGeneratedKeys="true">
         insert into wx_tab_user
@@ -57,10 +57,10 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="WxTabUserEntity">
+    <!--<update id="updateByPrimaryKey" parameterType="WxTabUserEntity">
         update wx_tab_user
         set account    = #{account,jdbcType=CHAR},
             `password` = #{password,jdbcType=CHAR}
         where id = #{id,jdbcType=BIGINT}
-    </update>
+    </update>-->
 </mapper>

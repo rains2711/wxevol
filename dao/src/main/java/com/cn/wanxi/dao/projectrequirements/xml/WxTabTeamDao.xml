@@ -24,13 +24,13 @@
         from wx_tab_team
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="WxTabTeamEntity" useGeneratedKeys="true">
         insert into wx_tab_team (`name`, create_time, update_time,
                                  superior_team_id, work_day, `status`)
         values (#{name,jdbcType=CHAR}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT},
                 #{superiorTeamId,jdbcType=BIGINT}, #{workDay,jdbcType=TINYINT}, #{status,jdbcType=TINYINT})
-    </insert>
+    </insert>-->
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="WxTabTeamEntity" useGeneratedKeys="true">
         insert into wx_tab_team
@@ -99,7 +99,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="WxTabTeamEntity">
+    <!--<update id="updateByPrimaryKey" parameterType="WxTabTeamEntity">
         update wx_tab_team
         set `name`           = #{name,jdbcType=CHAR},
             create_time      = #{createTime,jdbcType=BIGINT},
@@ -108,5 +108,5 @@
             work_day         = #{workDay,jdbcType=TINYINT},
             `status`         = #{status,jdbcType=TINYINT}
         where id = #{id,jdbcType=BIGINT}
-    </update>
+    </update>-->
 </mapper>

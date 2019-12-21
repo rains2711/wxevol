@@ -32,13 +32,13 @@
         from wx_tab_weekly_report
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="WxTabWeeklyReportEntity" useGeneratedKeys="true">
         insert into wx_tab_weekly_report (commit_time, commit_member_id, update_time,
                                           `status`, period_id, content)
         values (#{commitTime,jdbcType=BIGINT}, #{commitMemberId,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT},
                 #{status,jdbcType=TINYINT}, #{periodId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR})
-    </insert>
+    </insert>-->
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="WxTabWeeklyReportEntity" useGeneratedKeys="true">
         insert into wx_tab_weekly_report
@@ -108,7 +108,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs"
+    <!--<update id="updateByPrimaryKeyWithBLOBs"
             parameterType="WxTabWeeklyReportEntity">
         update wx_tab_weekly_report
         set commit_time      = #{commitTime,jdbcType=BIGINT},
@@ -127,5 +127,5 @@
             `status`         = #{status,jdbcType=TINYINT},
             period_id        = #{periodId,jdbcType=BIGINT}
         where id = #{id,jdbcType=BIGINT}
-    </update>
+    </update>-->
 </mapper>

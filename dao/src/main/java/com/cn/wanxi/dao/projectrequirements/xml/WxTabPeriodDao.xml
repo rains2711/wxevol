@@ -20,11 +20,11 @@
         from wx_tab_period
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="WxTabPeriodEntity" useGeneratedKeys="true">
         insert into wx_tab_period (project_id, project_progress)
         values (#{projectId,jdbcType=BIGINT}, #{projectProgress,jdbcType=TINYINT})
-    </insert>
+    </insert>-->
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="WxTabPeriodEntity" useGeneratedKeys="true">
         insert into wx_tab_period
@@ -57,10 +57,10 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="WxTabPeriodEntity">
+    <!--<update id="updateByPrimaryKey" parameterType="WxTabPeriodEntity">
         update wx_tab_period
         set project_id       = #{projectId,jdbcType=BIGINT},
             project_progress = #{projectProgress,jdbcType=TINYINT}
         where id = #{id,jdbcType=BIGINT}
-    </update>
+    </update>-->
 </mapper>

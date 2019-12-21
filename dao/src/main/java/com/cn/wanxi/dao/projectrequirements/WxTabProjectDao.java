@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface WxTabProjectDao extends MyBatisBaseDao<WxTabProjectEntity, Long> {
+public interface WxTabProjectDao extends MyBatisBaseDao<WxTabProjectEntity> {
 }

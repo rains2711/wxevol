@@ -28,7 +28,7 @@
         from wx_tab_task
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id"
+    <!--<insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="WxTabTaskEntity" useGeneratedKeys="true">
         insert into wx_tab_task (work_hour, priority, task_id,
                                  member_id, project_id, progress,
@@ -36,7 +36,7 @@
         values (#{workHour,jdbcType=TINYINT}, #{priority,jdbcType=TINYINT}, #{taskId,jdbcType=BIGINT},
                 #{memberId,jdbcType=BIGINT}, #{projectId,jdbcType=BIGINT}, #{progress,jdbcType=TINYINT},
                 #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, #{status,jdbcType=TINYINT})
-    </insert>
+    </insert>-->
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="WxTabTaskEntity" useGeneratedKeys="true">
         insert into wx_tab_task
@@ -132,7 +132,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="WxTabTaskEntity">
+    <!--<update id="updateByPrimaryKey" parameterType="WxTabTaskEntity">
         update wx_tab_task
         set work_hour   = #{workHour,jdbcType=TINYINT},
             priority    = #{priority,jdbcType=TINYINT},
@@ -144,5 +144,5 @@
             update_time = #{updateTime,jdbcType=BIGINT},
             `status`    = #{status,jdbcType=TINYINT}
         where id = #{id,jdbcType=BIGINT}
-    </update>
+    </update>-->
 </mapper>
