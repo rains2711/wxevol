@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author luoyuequan
  * @time 2019/12/21 13:11
  */
-public abstract class BaseServiceImpl<Dao extends MyBatisBaseDao, Entity> implements IService<Entity> {
+public class BaseServiceImpl<Dao extends MyBatisBaseDao<Entity>, Entity> implements IService<Entity> {
 
     @Autowired
     Dao baseDao;
